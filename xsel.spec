@@ -4,7 +4,7 @@
 #
 Name     : xsel
 Version  : 1.2.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/kfish/xsel/archive/1.2.0.tar.gz
 Source0  : https://github.com/kfish/xsel/archive/1.2.0.tar.gz
 Summary  : No detailed summary available
