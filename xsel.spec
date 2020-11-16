@@ -4,7 +4,7 @@
 #
 Name     : xsel
 Version  : 1.2.0
-Release  : 3
+Release  : 4
 URL      : https://github.com/kfish/xsel/archive/1.2.0.tar.gz
 Source0  : https://github.com/kfish/xsel/archive/1.2.0.tar.gz
 Summary  : No detailed summary available
@@ -47,17 +47,18 @@ man components for the xsel package.
 
 %prep
 %setup -q -n xsel-1.2.0
+cd %{_builddir}/xsel-1.2.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564540619
+export SOURCE_DATE_EPOCH=1605556679
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %autogen --disable-static
 make  %{?_smp_mflags}
@@ -67,13 +68,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1564540619
+export SOURCE_DATE_EPOCH=1605556679
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xsel
-cp COPYING %{buildroot}/usr/share/package-licenses/xsel/COPYING
+cp %{_builddir}/xsel-1.2.0/COPYING %{buildroot}/usr/share/package-licenses/xsel/33c26458d3d06d20a48fa27ccfca65301b13f604
 %make_install
 
 %files
@@ -85,7 +86,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/xsel/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xsel/COPYING
+/usr/share/package-licenses/xsel/33c26458d3d06d20a48fa27ccfca65301b13f604
 
 %files man
 %defattr(0644,root,root,0755)
